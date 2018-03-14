@@ -1,0 +1,56 @@
+/*Kata Task
+I have a cat and a dog.
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+Return their respective ages now as [humanYears,catYears,dogYears]
+NOTES:
+
+humanYears >= 1
+Cat Years
+
+15 cat years for first year
++9 cat years for second year
++4 cat years for each year after that
+Dog Years
+
+15 dog years for first year
++9 dog years for second year
++5 dog years for each year after that
+*/
+
+
+
+#include <vector>
+
+int Dog(int year){
+  int years;
+  if(year == 1) return 15;
+  else if(year ==2) return 24;
+  else if(year ==3) return 29;
+  else years = ((year-2)*5) +24;
+  
+  return years;
+}
+
+int Cat(int year){
+  int years;
+  if(year == 1) return 15;
+  else if(year ==2) return 24;
+  else if(year ==3) return 28;
+  else years = ((year-2)*4) +24;
+  
+  return years;
+}
+
+std::vector<int> humanYearsCatYearsDogYears(int humanYears) {
+  //your code here
+  std::vector<int> v;
+  
+  int dog, cat, human;
+  dog= Dog(humanYears);
+  cat= Cat(humanYears);
+  
+v.push_back(humanYears);
+v.push_back(cat);
+v.push_back(dog);
+return v;
+}

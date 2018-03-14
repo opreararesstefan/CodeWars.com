@@ -1,0 +1,39 @@
+/*This time no story, no theory. The examples below show you how to write function accum:
+
+Examples:
+
+Accumul::accum("abcd");    // "A-Bb-Ccc-Dddd"
+Accumul::accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+Accumul::accum("cwAt");    // "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+FUNDAMENTALS
+*/
+
+
+#include <string>
+
+class Accumul
+{
+
+public:
+    static std::string accum(const std::string &s);
+};
+
+
+
+ std::string Accumul::accum(const std::string &s){
+int j=0;
+std::string a = "";
+for(std::string::const_iterator i = s.begin(); i!= s.end(); i++,j++ ) {
+  
+  a.push_back(toupper(*i));
+  int w =j;
+  while((w--)!=0) { 
+  
+   (isupper(*i)) ? (a.push_back(tolower(*i))):   (a.push_back(*i));
+  }
+  a.push_back('-');
+}
+a.erase(a.end() -1);
+return a;
+}

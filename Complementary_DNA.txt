@@ -1,0 +1,44 @@
+/*Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for 
+the development and functioning of living organisms.
+
+If you want to know more http://en.wikipedia.org/wiki/DNA
+
+In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one 
+side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never 
+empty or there is no DNA at all (again, except for Haskell).
+
+DNA_strand ("ATTGC") # return "TAACG"
+
+DNA_strand ("GTAT") # return "CATA"
+*/
+
+
+
+#include <string>
+
+std::string DNAStrand(const std::string& dna)
+{
+std::string a = "";
+  for(int i =0; i<=dna.length(); i++)
+  {
+    switch(dna[i]){
+      case 'A': 
+      a.push_back('T');
+      break;
+      case 'T':
+      a.push_back('A');
+      break;
+      case 'C':
+      a.push_back('G');
+      break;
+      case 'G':
+      a.push_back('C');
+      break;
+      default: 
+      a.push_back(dna[i]);
+      break;
+    }
+  }
+  a.erase(a.end()-1);
+  return a;
+}
